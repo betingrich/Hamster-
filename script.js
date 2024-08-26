@@ -1,4 +1,3 @@
-js_content = '''
 document.querySelector('.hamster').addEventListener('click', function() {
     let coinDisplay = document.querySelector('.coin-display');
     let energyText = document.querySelector('.energy-text');
@@ -39,4 +38,3 @@ document.querySelector('.hamster').addEventListener('click', function() {
         }, 800);
     }, 100);
 });
-'''

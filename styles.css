@@ -1,7 +1,6 @@
-css_content = '''
 body {
     font-family: Arial, sans-serif;
-    background-color: #1A1A1A;
+    background-color: #000; /* Set overall background to black */
     color: #FFF;
     margin: 0;
     padding: 0;
@@ -96,7 +95,8 @@ body {
 
 .hamster {
     width: 150px;
-    height: auto;
+    height: 150px; /* Ensure height is equal to width to maintain circular shape */
+    border-radius: 50%; /* Make the image circular */
     cursor: pointer;
 }
 
@@ -162,4 +162,3 @@ body {
 .footer-button:hover {
     background-color: #444;
 }
-'''

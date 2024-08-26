@@ -1,22 +1,42 @@
-document.addEventListener("DOMContentLoaded", function() {
-    let coinCount = 127916010;
-    let energyCount = 5000;
+js_content = '''
+document.querySelector('.hamster').addEventListener('click', function() {
+    let coinDisplay = document.querySelector('.coin-display');
+    let energyText = document.querySelector('.energy-text');
+    let energyBarFill = document.querySelector('.energy-bar-fill');
 
-    const hamster = document.getElementById('hamster');
-    const coinDisplay = document.getElementById('coin-count');
-    const energyDisplay = document.getElementById('energy-count');
+    // Increase coins by 5
+    let currentCoins = parseInt(coinDisplay.textContent.replace(/,/g, ''));
+    currentCoins += 5;
+    coinDisplay.textContent = currentCoins.toLocaleString();
 
-    hamster.addEventListener('click', function() {
-        if (energyCount > 0) {
-            coinCount += 10; // Increase coins by 10 for each tap
-            energyCount -= 1; // Decrease energy by 1 for each tap
+    // Decrease energy by 5
+    let currentEnergy = parseInt(energyText.textContent.split('/')[0]);
+    if (currentEnergy > 0) {
+        currentEnergy -= 5;
+        let energyPercentage = (currentEnergy / 5000) * 100;
+        energyBarFill.style.width = energyPercentage + '%';
+        energyText.textContent = currentEnergy + '/5000';
+    }
 
-            coinDisplay.textContent = coinCount.toLocaleString();
-            energyDisplay.textContent = energyCount;
+    // Show +5 hover effect
+    let hoverEffect = document.createElement('div');
+    hoverEffect.textContent = '+5';
+    hoverEffect.style.position = 'absolute';
+    hoverEffect.style.left = '50%';
+    hoverEffect.style.transform = 'translateX(-50%)';
+    hoverEffect.style.bottom = '80%';
+    hoverEffect.style.color = '#FFD700';
+    hoverEffect.style.fontSize = '16px';
+    hoverEffect.style.fontWeight = 'bold';
+    hoverEffect.style.transition = 'bottom 0.8s ease, opacity 0.8s ease';
+    document.querySelector('.hamster-container').appendChild(hoverEffect);
 
-            if (energyCount === 0) {
-                alert("Energy depleted! Please wait for it to recharge.");
-            }
-        }
-    });
+    setTimeout(function() {
+        hoverEffect.style.bottom = '100%';
+        hoverEffect.style.opacity = '0';
+        setTimeout(function() {
+            hoverEffect.remove();
+        }, 800);
+    }, 100);
 });
+'''

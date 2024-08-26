@@ -94,8 +94,8 @@ body {
 }
 
 .hamster {
-    width: 200px;
-    height: 200px; /* Ensure height is equal to width to maintain circular shape */
+    width: 400px;
+    height: 400px; /* Ensure height is equal to width to maintain circular shape */
     border-radius: 60%; /* Make the image circular */
     cursor: pointer;
 }

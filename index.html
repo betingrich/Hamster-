@@ -1,52 +1,111 @@
+# Updating the structure and functionality based on the new requirements.
+html_content = '''
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hamster Kombat</title>
+    <title>Hamster Kombat Teaser</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="header">
-        <div class="profile-section">
-            <span class="profile-name">Nasty Kid (CEO)</span>
+        <div class="profile">
             <span class="rank">Grandmaster 9/11</span>
+            <span class="username">Nasty Kid (CEO)</span>
         </div>
-        <div class="coin-section">
-            <span class="binance-icon">BNB</span>
-            <span class="profit-hour">+117.91K</span>
-        </div>
-    </div>
-    
-    <div class="game-container">
-        <div class="main-info">
-            <div class="coin-display">
-                <span id="coin-count">127,916,010</span>
-            </div>
-            <div class="energy-bar">
-                <span id="energy-count">5000</span> / 5000
-            </div>
-        </div>
-        <div class="hamster-container">
-            <img src="https://telegra.ph/file/b08ce5d27a78c991b361f.jpg" alt="Hamster" id="hamster">
+        <div class="coins-container">
+            <img src="binance-icon.png" alt="Binance" class="binance-icon">
+            <span class="coins">+117.91K</span>
         </div>
     </div>
 
-    <div class="actions">
-        <div class="action-button" id="daily-reward">Daily Reward</div>
-        <div class="action-button" id="daily-cipher">Daily Cipher</div>
-        <div class="action-button" id="daily-combo">Daily Combo</div>
-        <div class="action-button" id="mini-game">Mini Game</div>
+    <div class="action-buttons">
+        <div class="action-button">Daily Reward</div>
+        <div class="action-button">Daily Cipher</div>
+        <div class="action-button">Daily Combo</div>
+        <div class="action-button">Mini Game</div>
+    </div>
+
+    <div class="game-container">
+        <div class="coin-display">127,916,010</div>
+        <div class="hamster-container">
+            <img src="hamster-image.png" alt="Hamster" class="hamster">
+        </div>
+        <div class="energy-bar-container">
+            <div class="energy-bar">
+                <div class="energy-bar-fill" style="width: 100%;"></div>
+            </div>
+            <span class="energy-text">5000/5000</span>
+        </div>
+        <div class="boost-button">Boost</div>
     </div>
 
     <div class="footer">
-        <div class="footer-button" id="exchange">Exchange</div>
-        <div class="footer-button" id="mine">Mine</div>
-        <div class="footer-button" id="playground">Playground</div>
-        <div class="footer-button" id="friends">Friends</div>
-        <div class="footer-button" id="earn">Earn</div>
+        <div class="footer-button">Exchange</div>
+        <div class="footer-button">Mine</div>
+        <div class="footer-button">Playground</div>
+        <div class="footer-button">Friends</div>
+        <div class="footer-button">Earn</div>
     </div>
 
     <script src="script.js"></script>
 </body>
 </html>
+'''
+
+
+
+js_content = '''
+document.querySelector('.hamster').addEventListener('click', function() {
+    let coinDisplay = document.querySelector('.coin-display');
+    let energyText = document.querySelector('.energy-text');
+    let energyBarFill = document.querySelector('.energy-bar-fill');
+
+    // Increase coins by 5
+    let currentCoins = parseInt(coinDisplay.textContent.replace(/,/g, ''));
+    currentCoins += 5;
+    coinDisplay.textContent = currentCoins.toLocaleString();
+
+    // Decrease energy by 5
+    let currentEnergy = parseInt(energyText.textContent.split('/')[0]);
+    if (currentEnergy > 0) {
+        currentEnergy -= 5;
+        let energyPercentage = (currentEnergy / 5000) * 100;
+        energyBarFill.style.width = energyPercentage + '%';
+        energyText.textContent = currentEnergy + '/5000';
+    }
+
+    // Show +5 hover effect
+    let hoverEffect = document.createElement('div');
+    hoverEffect.textContent = '+5';
+    hoverEffect.style.position = 'absolute';
+    hoverEffect.style.left = '50%';
+    hoverEffect.style.transform = 'translateX(-50%)';
+    hoverEffect.style.bottom = '80%';
+    hoverEffect.style.color = '#FFD700';
+    hoverEffect.style.fontSize = '16px';
+    hoverEffect.style.fontWeight = 'bold';
+    hoverEffect.style.transition = 'bottom 0.8s ease, opacity 0.8s ease';
+    document.querySelector('.hamster-container').appendChild(hoverEffect);
+
+    setTimeout(function() {
+        hoverEffect.style.bottom = '100%';
+        hoverEffect.style.opacity = '0';
+        setTimeout(function() {
+            hoverEffect.remove();
+        }, 800);
+    }, 100);
+});
+'''
+
+# Storing the files in the appropriate directory
+with open('/mnt/data/hamster_combakt/index.html', 'w') as file:
+    file.write(html_content)
+
+with open('/mnt/data/hamster_combakt/styles.css', 'w') as file:
+    file.write(css_content)
+
+with open('/mnt/data/hamster_combakt/script.js', 'w') as file:
+    file.write(js_content)
+    

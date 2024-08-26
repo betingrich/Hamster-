@@ -1,102 +1,165 @@
+css_content = '''
 body {
     font-family: Arial, sans-serif;
-    background-color: #121212;
-    color: white;
+    background-color: #1A1A1A;
+    color: #FFF;
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+    overflow: hidden;
 }
 
-.header, .footer {
-    width: 100%;
+.header {
     display: flex;
-    justify-content: space-around;
-    padding: 10px;
-    background-color: #1c1c1c;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #292929;
+    border-bottom: 1px solid #444;
 }
 
-.profile-section {
-    text-align: left;
-}
-
-.profile-name {
-    font-weight: bold;
+.profile {
+    display: flex;
+    flex-direction: column;
 }
 
 .rank {
-    display: block;
-    color: lightgrey;
+    font-weight: bold;
+    font-size: 14px;
+    color: #FFDD00;
 }
 
-.coin-section {
+.username {
+    font-size: 12px;
+    color: #FFF;
+}
+
+.coins-container {
     display: flex;
     align-items: center;
 }
 
 .binance-icon {
-    margin-right: 5px;
+    width: 24px;
+    margin-right: 10px;
 }
 
-.profit-hour {
-    color: lightgreen;
+.coins {
+    font-size: 16px;
+    font-weight: bold;
+    color: #FFD700;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    background-color: #292929;
+    border-bottom: 1px solid #444;
+}
+
+.action-button {
+    background-color: #333;
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #FFF;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.action-button:hover {
+    background-color: #444;
 }
 
 .game-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 20px;
-}
-
-.main-info {
-    text-align: center;
-    margin-bottom: 20px;
+    flex-grow: 1;
+    justify-content: center;
 }
 
 .coin-display {
     font-size: 24px;
-    margin-bottom: 10px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #FFD700;
+}
+
+.hamster-container {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.hamster {
+    width: 150px;
+    height: auto;
+    cursor: pointer;
+}
+
+.energy-bar-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
 .energy-bar {
-    font-size: 16px;
-    color: #ffca28;
+    width: 200px;
+    height: 10px;
+    background-color: #444;
+    border-radius: 5px;
+    margin-right: 10px;
+    position: relative;
+    overflow: hidden;
 }
 
-.hamster-container img {
-    width: 150px;
-    cursor: pointer;
+.energy-bar-fill {
+    height: 100%;
+    background-color: #FFDD00;
+    transition: width 0.3s ease;
 }
 
-.actions {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    margin-top: 20px;
-}
-
-.action-button, .footer-button {
-    padding: 10px;
-    background-color: #282828;
-    border-radius: 10px;
-    cursor: pointer;
-    text-align: center;
-    width: 100px;
-    margin: 5px;
+.energy-text {
     font-size: 14px;
+    color: #FFF;
+}
+
+.boost-button {
+    background-color: #292929;
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #FFF;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.boost-button:hover {
+    background-color: #444;
 }
 
 .footer {
-    position: fixed;
-    bottom: 0;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    background-color: #292929;
+    border-top: 1px solid #444;
 }
 
 .footer-button {
-    width: 80px;
+    background-color: #333;
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #FFF;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.action-button:hover, .footer-button:hover {
-    background-color: #3d3d3d;
+.footer-button:hover {
+    background-color: #444;
 }
+'''

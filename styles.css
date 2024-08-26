@@ -1,59 +1,102 @@
-/* styles.css */
 body {
-    margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #1c1c1c;
+    background-color: #121212;
     color: white;
+    margin: 0;
+    padding: 0;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    height: 100vh;
+}
+
+.header, .footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    background-color: #1c1c1c;
+}
+
+.profile-section {
+    text-align: left;
+}
+
+.profile-name {
+    font-weight: bold;
+}
+
+.rank {
+    display: block;
+    color: lightgrey;
+}
+
+.coin-section {
+    display: flex;
+    align-items: center;
+}
+
+.binance-icon {
+    margin-right: 5px;
+}
+
+.profit-hour {
+    color: lightgreen;
 }
 
 .game-container {
-    text-align: center;
-    width: 100%;
-    max-width: 400px;
-    background-color: #282828;
-    border-radius: 10px;
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
 }
 
-.header {
+.main-info {
+    text-align: center;
     margin-bottom: 20px;
 }
 
 .coin-display {
-    font-size: 1.5em;
-    margin-top: 10px;
+    font-size: 24px;
+    margin-bottom: 10px;
 }
 
-.hamster-container {
-    margin: 20px 0;
+.energy-bar {
+    font-size: 16px;
+    color: #ffca28;
 }
 
 .hamster-container img {
     width: 150px;
-    height: auto;
     cursor: pointer;
 }
 
-.footer {
+.actions {
     display: flex;
     justify-content: space-around;
+    width: 100%;
     margin-top: 20px;
 }
 
-.footer button {
-    background-color: #333;
-    border: none;
-    color: white;
+.action-button, .footer-button {
     padding: 10px;
-    border-radius: 5px;
+    background-color: #282828;
+    border-radius: 10px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    text-align: center;
+    width: 100px;
+    margin: 5px;
+    font-size: 14px;
 }
 
-.footer button:hover {
-    background-color: #444;
+.footer {
+    position: fixed;
+    bottom: 0;
+}
+
+.footer-button {
+    width: 80px;
+}
+
+.action-button:hover, .footer-button:hover {
+    background-color: #3d3d3d;
 }
